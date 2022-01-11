@@ -5,13 +5,9 @@ require_once __DIR__ . "/classes/User.php";
 
 
 <?php
-$testUser = new User('Paolo','Duzioni', 3);
-var_dump($testUser);
-$product = new Product('Zuchini', 25 , 999);
-var_dump($product);
-
+// ISTANZE OGGETTI
+$user1 = new user('Paolo', 'Duzioni', 254, 420, 'iPhone',1 , 412);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,12 +20,14 @@ var_dump($product);
 
 
 <body>
-	<p><?php echo $testUser->GET_firstName() ?></p>
-	<p><?php echo $testUser->GET_lastName() ?></p>
-	<p><?php echo $product->GET_name() ?></p>
-	<p><?php echo $product->GET_price()?>$</p>
+<p>User: <?php echo $user1->GET_fullName() ?></p>
+<p>Price: <?php echo $user1->GET_discount()?>$</p>
+	<hr>
+
 </body>
 
 </html>
 
+
+<?php
 

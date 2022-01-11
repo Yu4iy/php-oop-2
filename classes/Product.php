@@ -1,14 +1,15 @@
 <?php
 
-   class Product
+   class product
    {
       public $name;
       public $id;
       public $price;
-      public $discount;
+
       
       public function __construct($name, $id, $price)
       {
+
          $this->name = $name;
          $this->id = $id;
          $this->price = $price;
@@ -25,6 +26,7 @@
       {
          return $this->price;
       }
+	
 
 }
 

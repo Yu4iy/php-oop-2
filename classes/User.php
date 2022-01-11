@@ -11,19 +11,23 @@ Di nuovo buon lavoro e a domani :php: -->
 
 
 <?php
+require_once __DIR__ . "/Product.php";
 
-   class User
+   class user extends product
    {
-      public $firstName;
-      public $lastName;
-      public $status;
-   
-      public function __construct($firstName, $lastName, $status)
+      protected $firstName;
+      protected $lastName;
+      protected $age;
+
+      public function __construct($_firstName, $_lastName, $_age, $name, $id, $price)
       {
-         $this->firstName = $firstName;
-         $this->lastName = $lastName;
-         $this->status = $status;
+	      parent::__construct($name, $id, $price,);
+
+         $this->firstName = $_firstName;
+         $this->lastName = $_lastName;
+         $this->age = $_age;
       }
+      // GETTERS
 
       public function GET_firstName()
       {
@@ -33,6 +37,31 @@ Di nuovo buon lavoro e a domani :php: -->
       {
          return $this->lastName;
       }
+      public function GET_age()
+      {
+         return $this->age;
+      }
+      public function GET_fullName()
+      {
+         return $this->SET_fullName();
+      }
+      public function GET_discount()
+      {
+         return $this->SET_discount();
+      }
+      // SETTERS
 
+      private function SET_fullName(){
+         return $this->firstName.' '.$this->lastName;
+      }
+
+      private function SET_discount()
+      {
+         if($this->GET_age() > 30 ){
+            return $this->price - 1;
+         }else{
+            return $this->price;
+         }
+      }
 
    }
